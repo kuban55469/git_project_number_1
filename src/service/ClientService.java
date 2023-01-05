@@ -1,6 +1,7 @@
 package service;
 
 import classees.Client;
+import classees.Taxi;
 
 import java.util.List;
 import java.util.Map;

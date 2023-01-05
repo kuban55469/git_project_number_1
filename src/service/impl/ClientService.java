@@ -1,6 +1,7 @@
 package service.impl;
 
 import classees.Client;
+import classees.Taxi;
 import dao.Database;
 
 import java.util.ArrayList;
