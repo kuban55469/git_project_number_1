@@ -14,7 +14,7 @@ public class Client {
         this.id = id;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
-        if (phoneNumber.length() == 13 && phoneNumber.startsWith("+996")){
+        if (phoneNumber.length() == 13){
             this.phoneNumber = phoneNumber;
         }else
             System.out.println("Ne pravilnyi nomer!!");

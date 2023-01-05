@@ -64,11 +64,11 @@ public class Main {
             }
         }
         List<Client> clients = new ArrayList<>(List.of(
-                new Client(1L,"Kuban Kelsinbekov", LocalDate.of(2002,12,10),"996708281398", BigDecimal.valueOf(20000)),
+                new Client(1L,"Kuban Kelsinbekov", LocalDate.of(2002,12,10),"+996708281398", BigDecimal.valueOf(20000)),
                 new Client(2L,"Ilyaz Sariev", LocalDate.of(1990,12,28),"+996222888999", BigDecimal.valueOf(30000)),
-                new Client(3L,"Zhazgul Asanov", LocalDate.of(2003,9,11),"+996333444555", BigDecimal.valueOf(40000))
+                new Client(3L,"Zhazgul Asanova", LocalDate.of(2003,9,11),"+996333444555", BigDecimal.valueOf(40000))
         ));
-        Client client = new Client(3L,"Zhazgul Asanov", LocalDate.of(2003,9,11),"+996333444555", BigDecimal.valueOf(40000));
+        Client client = new Client(3L,"Zhazgul Asanova", LocalDate.of(2003,9,11),"+996333444555", BigDecimal.valueOf(40000));
         ClientService clientService = new ClientService();
 
         while (true) {
