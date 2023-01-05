@@ -71,13 +71,12 @@ public class Taxi {
 
     @Override
     public String toString() {
-        return "Taxi{" +
-                "id=" + id +
-                ", model='" + model + '\'' +
-                ", number='" + number + '\'' +
-                ", colour='" + colour + '\'' +
-                ", year=" + year +
-                ", taxiType=" + taxiType +
-                '}';
+        return "\nTaxi: " +
+                "\nid: " + id +
+                "\nmodel: " + model +
+                "\nnumber: " + number +
+                "\ncolour: " + colour +
+                "\nyear: " + year +
+                "\ntaxiType: " + taxiType;
     }
 }
