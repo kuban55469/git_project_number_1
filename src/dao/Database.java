@@ -1,6 +1,7 @@
 package dao;
 
 import classees.Client;
+import classees.Driver;
 import classees.License;
 import classees.Taxi;
 
