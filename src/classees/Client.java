@@ -14,7 +14,10 @@ public class Client {
         this.id = id;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
-        this.phoneNumber = phoneNumber;
+        if (phoneNumber.length() == 13){
+            this.phoneNumber = phoneNumber;
+        }else
+            System.out.println("Ne pravilnyi nomer!!");
         this.money = money;
     }
 
