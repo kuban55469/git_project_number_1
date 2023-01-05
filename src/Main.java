@@ -1,3 +1,16 @@
+import classees.Client;
+import classees.Taxi;
+import enums.TaxiType;
+import service.impl.ClientService;
+import service.impl.TaxiService;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         List<Taxi> taxiList = new ArrayList<>(Arrays.asList(
