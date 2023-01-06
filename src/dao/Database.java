@@ -4,7 +4,6 @@ import classees.Client;
 import classees.Driver;
 import classees.License;
 import classees.Taxi;
-
 import java.util.List;
 
 public class Database {

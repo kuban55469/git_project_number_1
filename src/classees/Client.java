@@ -14,7 +14,10 @@ public class Client {
         this.id = id;
         this.fullName = fullName;
         this.dateOfBirth = dateOfBirth;
-        this.phoneNumber = phoneNumber;
+        if (phoneNumber.length() == 13){
+            this.phoneNumber = phoneNumber;
+        }else
+            System.out.println("Ne pravilnyi nomer!!");
         this.money = money;
     }
 
@@ -60,12 +63,12 @@ public class Client {
 
     @Override
     public String toString() {
-        return "Client{" +
-                "id=" + id +
-                ", fullName='" + fullName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
-                ", phoneNumber='" + phoneNumber + '\'' +
-                ", money=" + money +
-                '}';
+        return "\nClient: " +
+                "\nid: " + id +
+                "\nfullName: " + fullName +
+                "\ndateOfBirth: " + dateOfBirth +
+                "\nphoneNumber: " + phoneNumber +
+                "\nmoney: " + money +
+                "\n~~~~~~~~~~~~~~~~~~~\n";
     }
 }
