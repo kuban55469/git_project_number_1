@@ -28,11 +28,16 @@ public class ClientService implements service.ClientService {
     @Override
     public List<Client> getClientByName(String name) {
         List<Client> newClients = new ArrayList<>();
-        for (Client client : database.getClients()) {
-            String[] names = client.getFullName().split(" ");
-            if (names[0].equals(name)) {
-                newClients.add(client);
+        try {
+            if (name.isEmpty()) throw new Exception("Name can't be Empty");
+            for (Client client : database.getClients()) {
+                String[] names = client.getFullName().split(" ");
+                if (names[0].equals(name)) {
+                    newClients.add(client);
+                }
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return newClients;
     }
@@ -48,23 +53,29 @@ public class ClientService implements service.ClientService {
 
     @Override
     public Taxi orderTaxi(Long clientId, String taxiType) {
-        for (Client client : database.getClients()) {
-            if (Objects.equals(client.getId(), clientId)){
-                for (Taxi taxi : database.getTaxiList()) {
-                    if (taxi.getTaxiType().name().equals(taxiType)){
-                        int t = client.getMoney().intValue();
-                        if (t >= taxi.getTaxiType().getPriceForLanding().intValue()){
-                            return taxi;
-                        }else {
-                            System.out.println("Ne hvataet dengi");
+        try {
+            if (clientId < 0) throw new Exception("Id can't be is negative number");
+            if (taxiType.isEmpty()) throw new Exception("Taxi name can't be Empty");
+            for (Client client : database.getClients()) {
+                if (Objects.equals(client.getId(), clientId)) {
+                    for (Taxi taxi : database.getTaxiList()) {
+                        if (taxi.getTaxiType().name().equals(taxiType)) {
+                            int t = client.getMoney().intValue();
+                            if (t >= taxi.getTaxiType().getPriceForLanding().intValue()) {
+                                return taxi;
+                            } else {
+                                System.out.println("Ne hvataet dengi");
+                            }
+                        } else {
+                            System.out.println("Vy ne pravilno vveli order.");
                         }
-                    }else {
-                        System.out.println("Vy ne pravilno vveli order.");
                     }
+                } else {
+                    System.out.println("Ne pravilnyi id.");
                 }
-            }else {
-                System.out.println("Ne pravilnyi id.");
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
         return null;
     }
@@ -80,15 +91,17 @@ public class ClientService implements service.ClientService {
 
     @Override
     public void universalSorting(String word) {
-        switch (word) {
-            case "fullName" ->
-                    database.getClients().stream().sorted(Comparator.comparing(Client::getFullName)).toList().forEach(System.out::println);
-            case "dataOfBirth" ->
-                    database.getClients().stream().sorted(Comparator.comparing(Client::getDateOfBirth)).toList().forEach(System.out::println);
-            case "money" ->
-                    database.getClients().stream().sorted(Comparator.comparing(Client::getMoney)).toList().forEach(System.out::println);
-            default -> System.out.println("Error!");
+        try {
+            if (word.isEmpty()) throw new Exception("Word can't be is Empty");
+            switch (word) {
+                case "fullName" -> database.getClients().stream().sorted(Comparator.comparing(Client::getFullName)).toList().forEach(System.out::println);
+                case "dataOfBirth" -> database.getClients().stream().sorted(Comparator.comparing(Client::getDateOfBirth)).toList().forEach(System.out::println);
+                case "money" -> database.getClients().stream().sorted(Comparator.comparing(Client::getMoney)).toList().forEach(System.out::println);
+                default -> System.out.println("Error!");
 
+            }
+        }catch (Exception e){
+            e.printStackTrace();
         }
     }
 }
